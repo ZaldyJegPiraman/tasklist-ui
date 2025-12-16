@@ -1,0 +1,140 @@
+<div class="layout">
+
+  <!-- ================= LEFT : CREATE TASK ================= -->
+  <div class="left-panel">
+
+    <mat-card class="task-card">
+      <mat-card-title> {{ isEditMode ? 'Edit Task' : 'Create Task' }}</mat-card-title>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" class="task-form">
+
+    <mat-form-field appearance="outline" class="full">
+  <input
+    matInput
+    formControlName="title"
+    [errorStateMatcher]="matcher">
+</mat-form-field>
+        <mat-form-field appearance="outline" class="full">
+          <mat-label>Description</mat-label>
+          <textarea matInput rows="3" formControlName="description"></textarea>
+        </mat-form-field>
+
+        <div class="row">
+          <mat-form-field appearance="outline">
+            <mat-label>Due Date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="dueDate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Priority</mat-label>
+            <mat-select formControlName="priority">
+              <mat-option [value]="1">Low</mat-option>
+              <mat-option [value]="2">Medium</mat-option>
+              <mat-option [value]="3">High</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="row">
+          <mat-form-field appearance="outline">
+            <mat-label>Category</mat-label>
+            <input matInput formControlName="category">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="status">
+              <mat-option [value]="1">To Do</mat-option>
+              <mat-option [value]="2">In Progress</mat-option>
+              <mat-option [value]="3">Completed</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+<button mat-raised-button color="primary" class="full">
+  {{ isEditMode ? 'Update Task' : 'Add Task' }}
+</button>
+
+<button
+  *ngIf="isEditMode"
+  mat-button
+  type="button"
+  color="warn"
+  (click)="cancelEdit()">
+  Cancel
+</button>
+
+      </form>
+    </mat-card>
+
+  </div>
+
+  <!-- ================= RIGHT : TASK LIST ================= -->
+<!-- ================= RIGHT : TASK LIST ================= -->
+<div class="right-panel">
+
+  <mat-card
+    class="task-item"
+    *ngFor="let task of tasks$ | async; trackBy: trackById"
+    (click)="edit(task)">
+
+    <div class="task-item-content">
+
+      <!-- LEFT CONTENT -->
+      <div class="task-main">
+
+        <h3
+          class="task-title"
+          [class.completed]="task.status === 3">
+          {{ task.title }}
+        </h3>
+
+        <p class="task-desc" *ngIf="task.description">
+          {{ task.description }}
+        </p>
+
+        <!-- META ROW -->
+        <div class="task-meta">
+
+          <span class="meta-item" *ngIf="task.dueDate">
+            <mat-icon>event</mat-icon>
+            {{ task.dueDate | date:'mediumDate' }}
+          </span>
+
+          <span
+            class="meta-chip priority"
+            [class.low]="task.priority === 1"
+            [class.medium]="task.priority === 2"
+            [class.high]="task.priority === 3">
+            🔥 {{ getPriorityLabel(task.priority) }}
+          </span>
+
+          <span
+            class="meta-chip status"
+            [class.todo]="task.status === 1"
+            [class.progress]="task.status === 2"
+            [class.done]="task.status === 3">
+            📌 {{ getStatusLabel(task.status) }}
+          </span>
+
+          <span class="meta-item category">
+            📁 {{ task.category || 'No Category' }}
+          </span>
+
+        </div>
+      </div>
+
+      <!-- ACTION -->
+      <button
+        mat-icon-button
+        color="warn"
+        (click)="remove(task.id); $event.stopPropagation()">
+        <mat-icon>delete</mat-icon>
+      </button>
+
+    </div>
+  </mat-card>
+
+</div>
+</div>

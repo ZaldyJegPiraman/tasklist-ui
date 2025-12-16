@@ -1,0 +1,50 @@
+<div class="auth-container">
+  <mat-card class="auth-card">
+    <h2>Create Account</h2>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput type="password" formControlName="confirmPassword">
+      </mat-form-field>
+
+  <div class="message error" *ngIf="error">
+  {{ error }}
+</div>
+
+<div class="message success" *ngIf="success">
+  {{ success }}
+</div>
+
+<button
+  mat-raised-button
+  color="primary"
+  class="full-width"
+  type="submit"
+  [disabled]="loading || form.invalid">
+  {{ loading ? 'Registering...' : 'Register' }}
+</button>
+
+<button
+  mat-button
+  type="button"
+  (click)="goToLogin()"
+  class="full-width">
+  Back to Login
+</button>
+
+
+    </form>
+  </mat-card>
+</div>
