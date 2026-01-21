@@ -1,13 +1,14 @@
-# TaskList UI
+# TaskList UI (Angular)
 
-A modern **Task List frontend application** built with **Angular** and **Angular Material**, featuring user authentication and full CRUD task management.
+A modern **Task List frontend application** built with **Angular** and **Angular Material**, featuring secure authentication, full CRUD task management, and **AI-powered task insights**.
 
-This project is designed to work with a backend REST API (e.g. ASP.NET Core) using **JWT authentication**.
+This project works with the **TaskList API (ASP.NET Core)** using **JWT authentication** and AI endpoints.
 
 ---
 
 ## 🚀 Features
 
+### Core Features
 - 🔐 User Registration & Login (JWT-based authentication)
 - 🛡️ Protected routes using Auth Guards
 - 📋 View all tasks in a clean, professional layout
@@ -19,6 +20,24 @@ This project is designed to work with a backend REST API (e.g. ASP.NET Core) usi
 - 🎯 Task priority & status management
 - 🎨 Responsive UI using Angular Material components
 
+### 🤖 AI Features (New)
+- 🧠 **AI Task Summary**
+  - Generates a **human-friendly, conversational summary** of your tasks
+  - Includes:
+    - Overview of total tasks
+    - Tasks due **today**
+    - Tasks due in the **next 7 days**
+  - Tasks are grouped and explained clearly (not raw data)
+
+- 📄 **AI Document Analysis**
+  - Upload a `.txt` or `.docx` document
+  - AI extracts:
+    - Summary of the document
+    - Actionable tasks
+    - Due dates
+    - People mentioned
+  - Extracted tasks can be **added directly** to your task list
+
 ---
 
 ## 🧱 Tech Stack
@@ -28,7 +47,8 @@ This project is designed to work with a backend REST API (e.g. ASP.NET Core) usi
 - **RxJS**
 - **SCSS**
 - **JWT Authentication**
-- **REST API integration**
+- **REST API Integration**
+- **AI-powered endpoints (LLM-backed)**
 
 ---
 
@@ -50,7 +70,7 @@ npm install
 ng serve
 ```
 
-Open your browser and navigate to:
+Open your browser at:
 ```
 http://localhost:4200
 ```
@@ -69,7 +89,7 @@ http://localhost:4200
 - Redirects user to `/tasks`
 
 ### Protected Routes
-- `/tasks` is protected by an `AuthGuard`
+- `/tasks`, `/ai/summary`, and `/ai/analyze` are protected by `AuthGuard`
 - Unauthorized users are redirected to login
 
 ---
@@ -87,7 +107,29 @@ Each task supports:
 Actions:
 - Click a task to edit
 - Delete tasks using the trash icon
-- Completed tasks visually differ for clarity
+- Completed tasks are visually distinct
+
+---
+
+## 🤖 AI Pages
+
+### 🧠 AI Task Summary
+Route:
+```
+/ai/summary
+```
+- Displays a styled AI-generated summary
+- Tasks are grouped by urgency
+- Uses clear sections and bullet separation
+
+### 📄 AI Analyze Document
+Route:
+```
+/ai/analyze
+```
+- Upload documents (`.txt`, `.docx`)
+- AI extracts tasks and metadata
+- Each extracted task can be added with one click
 
 ---
 
@@ -96,61 +138,61 @@ Actions:
 ```
 src/
 ├── app/
-│   ├── auth/          # Login & Register components
+│   ├── auth/          # Login & Register
 │   ├── guards/        # AuthGuard
-│   ├── tasks/         # Task list feature
-│   ├── services/      # API services
-│   └── shared/        # Shared utilities
+│   ├── tasks/         # Task CRUD
+│   ├── ai/            # AI Summary & Analyze pages
+│   ├── services/      # API & AI services
+│   └── shared/        # Shared UI & utilities
 ```
 
 ---
 
 ## 🔗 Backend API Requirements
 
-This UI expects a backend API providing:
+The UI expects these API endpoints:
 
+### Auth
 - `POST /api/auth/register`
 - `POST /api/auth/login`
+
+### Tasks
 - `GET /api/tasks`
 - `POST /api/tasks`
 - `PUT /api/tasks/{id}`
 - `DELETE /api/tasks/{id}`
 
-The API must:
+### AI
+- `GET /api/ai/summary`
+- `POST /api/ai/analyze-document`
+
+API must:
 - Use JWT authentication
-- Accept Bearer tokens in `Authorization` header
+- Accept `Authorization: Bearer <token>`
 
 ---
 
 ## 🧪 Testing & Build
 
-### Run unit tests
+### Unit tests
 ```bash
 ng test
 ```
 
-### Build for production
+### Production build
 ```bash
 ng build
 ```
 
 ---
 
-## 💡 Possible Enhancements
+## 💡 Future Enhancements
 
-- 🔁 Forgot Password / Reset Password flow
-- ✉️ Email verification
-- 🌙 Dark mode support
+- 🌙 Dark mode
 - 🔍 Task filtering & sorting
-- 🧲 Drag-and-drop task ordering
+- 📊 Task analytics dashboard
 - 🔔 Snackbar notifications
-- 📊 Task statistics dashboard
-
----
-
-## 📄 License
-
-This project is open-source and available under the **MIT License**.
+- 🧠 Smarter AI prioritization suggestions
 
 ---
 
@@ -159,3 +201,9 @@ This project is open-source and available under the **MIT License**.
 **Zaldy Jeg M. Piraman**  
 Full Stack Developer  
 GitHub: https://github.com/ZaldyJegPiraman
+
+---
+
+## 📄 License
+
+MIT License
