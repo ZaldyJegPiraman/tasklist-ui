@@ -127,7 +127,7 @@ Route:
 ```
 /ai/analyze
 ```
-- Upload documents (`.txt`, `.docx`)
+- Upload documents (`.txt`, `.docx`, `.pdf`)
 - AI extracts tasks and metadata
 - Each extracted task can be added with one click
 
