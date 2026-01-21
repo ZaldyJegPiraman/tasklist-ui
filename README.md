@@ -30,7 +30,7 @@ This project works with the **TaskList API (ASP.NET Core)** using **JWT authenti
   - Tasks are grouped and explained clearly (not raw data)
 
 - 📄 **AI Document Analysis**
-  - Upload a `.txt` or `.docx` document
+  - Upload a `.txt` or `.docx` or `.pdf` document
   - AI extracts:
     - Summary of the document
     - Actionable tasks
