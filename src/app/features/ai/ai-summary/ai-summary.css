@@ -1,0 +1,325 @@
+.markdown {
+  white-space: normal;
+  line-height: 1.6;
+}
+
+.markdown ul {
+  padding-left: 20px;
+}
+
+.markdown strong {
+  font-weight: 600;
+}
+
+
+.markdown {
+  margin-top: 16px;
+  line-height: 1.6;
+}
+
+mat-progress-bar {
+  margin-top: 8px;
+}
+
+.task-summary-container{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+/* Container */
+.ai-summary-container {
+  max-width: 900px;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.7;
+}
+
+/* Headings */
+.ai-summary-container h1,
+.ai-summary-container h2,
+.ai-summary-container h3 {
+
+  color: #0d47a1;
+  font-weight: 600;
+}
+
+/* Section titles like "Tasks Due Today" */
+.ai-summary-container strong {
+  color: #1a237e;
+}
+
+/* Paragraphs */
+.ai-summary-container p {
+  margin-bottom: 14px;
+  color: #333;
+  font-size: 15px;
+}
+
+/* Bullet lists */
+.ai-summary-container ul {
+  padding-left: 20px;
+  margin-bottom: 16px;
+}
+
+.ai-summary-container li {
+  margin-bottom: 8px;
+}
+
+/* Emphasis */
+.ai-summary-container em {
+  color: #555;
+}
+
+/* Friendly closing line */
+.ai-summary-container p:last-child {
+  margin-top: 24px;
+  font-weight: 500;
+  color: #2e7d32;
+}
+
+/* Loading text */
+.loading-text {
+  margin-top: 12px;
+  font-style: italic;
+  color: #555;
+}
+
+.markdown {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  color: #1f2937;
+}
+
+/* Section titles */
+.markdown h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Icons via CSS */
+.markdown h2::before {
+  font-size: 1.3rem;
+}
+
+.markdown h2:nth-of-type(1)::before {
+  content: "📅";
+}
+
+.markdown h2:nth-of-type(2)::before {
+  content: "⏳";
+}
+
+/* Paragraph cards */
+.markdown p {
+  background: #f8fafc;
+  border-left: 4px solid #2563eb;
+  padding: 12px 14px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+/* Friendly intro text */
+.markdown p:first-of-type {
+  background: #eef2ff;
+  border-left-color: #6366f1;
+  font-weight: 500;
+}
+
+
+
+/* Main container */
+.ai-summary-container {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px 24px;
+
+  max-width: 1000px;
+
+  /* subtle professional shadow */
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  color: #1f2937;
+}
+
+/* Headings inside markdown */
+.ai-summary-container h1,
+.ai-summary-container h2,
+.ai-summary-container h3 {
+
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Accent line under section headers */
+.ai-summary-container h3 {
+  padding-bottom: 6px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+/* Paragraphs */
+.ai-summary-container p {
+  margin-bottom: 12px;
+  font-size: 15px;
+  color: #374151;
+}
+
+/* Lists */
+.ai-summary-container ul {
+  padding-left: 18px;
+  margin-bottom: 12px;
+}
+
+.ai-summary-container li {
+  margin-bottom: 6px;
+}
+
+/* Highlight important phrases (AI tends to bold) */
+.ai-summary-container strong {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+/* Mobile-friendly */
+@media (max-width: 768px) {
+  .ai-summary-container {
+    padding: 16px;
+    font-size: 14px;
+  }
+}
+
+/* 🔥 Force styles into ngx-markdown output */
+:host ::ng-deep .markdown {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.7;
+  color: #1f2937;
+}
+
+/* Paragraph cards */
+:host ::ng-deep .markdown p {
+  background: #f8fafc;
+  border-left: 4px solid #2563eb;
+  padding: 12px 14px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+/* First paragraph (friendly intro) */
+:host ::ng-deep .markdown p:first-of-type {
+  background: #eef2ff;
+  border-left-color: #6366f1;
+  font-weight: 500;
+}
+
+/* Headings */
+:host ::ng-deep .markdown h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Icons via CSS */
+:host ::ng-deep .markdown h2:nth-of-type(1)::before {
+  content: "📅";
+}
+
+:host ::ng-deep .markdown h2:nth-of-type(2)::before {
+  content: "⏳";
+}
+
+/* Lists */
+:host ::ng-deep .markdown ul {
+  padding-left: 18px;
+  margin-bottom: 12px;
+}
+
+:host ::ng-deep .markdown li {
+  margin-bottom: 6px;
+}
+
+/* Strong emphasis */
+:host ::ng-deep .markdown strong {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+/* Page wrapper to add horizontal spacing */
+.summary-page {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+
+markdown {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* ============================= */
+/* AI SUMMARY – BULLET STYLING */
+/* ============================= */
+
+/* Remove default list look */
+.ai-summary-container ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 12px 0 20px 0;
+}
+
+/* Each bullet becomes a card */
+.ai-summary-container li {
+  background: #f8fafc;
+  border-left: 4px solid #2563eb;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+
+  font-size: 14.5px;
+  color: #374151;
+  line-height: 1.5;
+}
+
+/* Bold task titles */
+.ai-summary-container li strong {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+/* Optional hover (nice UX) */
+.ai-summary-container li:hover {
+  background: #eef2ff;
+}
+
+/* Spacing between sections */
+.ai-summary-container h2,
+.ai-summary-container h3 {
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+/* Mobile friendly */
+@media (max-width: 768px) {
+  .ai-summary-container li {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+}

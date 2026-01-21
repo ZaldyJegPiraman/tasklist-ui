@@ -1,0 +1,174 @@
+/* ============================= */
+/* Page Container (same as Summary) */
+/* ============================= */
+.ai-analyze-container {
+  max-width: 1000px;
+  margin: 24px auto;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Page Title */
+.ai-analyze-container h2 {
+  margin-bottom: 16px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* ============================= */
+/* Upload Section */
+/* ============================= */
+.upload-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.upload-section input[type="file"] {
+  font-size: 14px;
+}
+
+.upload-section button {
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: none;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.upload-section button:hover {
+  background: #1d4ed8;
+}
+
+/* ============================= */
+/* Summary Box */
+/* ============================= */
+.document-summary {
+  background: #eef2ff;
+  border-left: 4px solid #6366f1;
+  padding: 14px 16px;
+  border-radius: 6px;
+  margin-bottom: 24px;
+  font-size: 15px;
+  color: #1f2937;
+}
+
+/* ============================= */
+/* Extracted Tasks */
+/* ============================= */
+.task-card {
+  background: #f8fafc;
+  border-left: 4px solid #2563eb;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+/* Task title */
+.task-card strong {
+  font-size: 16px;
+  color: #0f172a;
+}
+
+/* Task description */
+.task-card p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #374151;
+}
+
+/* Meta info (Due / People) */
+.task-card b {
+  color: #1e40af;
+}
+
+/* ============================= */
+/* Add Task Button */
+/* ============================= */
+.task-card button {
+  margin-top: 10px;
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 6px;
+  border: none;
+  background: #22c55e;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.task-card button:hover {
+  background: #16a34a;
+}
+
+/* ============================= */
+/* Loading Text */
+/* ============================= */
+.loading-text {
+  margin-top: 10px;
+  font-style: italic;
+  color: #555;
+}
+/* ============================= */
+/* Add Task Button (Clean Style) */
+/* ============================= */
+.task-card button {
+  display: inline-flex;           /* keeps icon + text aligned */
+  align-items: center;
+  gap: 6px;
+
+  margin-top: 12px;               /* ✅ next line spacing */
+  padding: 6px 14px;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  border-radius: 6px;
+  border: 1px solid #2563eb;
+  background: #ffffff;
+
+  color: #2563eb;                 /* text + icon same color */
+  cursor: pointer;
+}
+
+/* Hover */
+.task-card button:hover {
+  background: #eef2ff;
+}
+
+/* Remove any 3D / shadow */
+.task-card button,
+.task-card button * {
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+
+mat-progress-bar {
+  margin-top: 8px;
+  margin-bottom: 16px; /* ✅ add spacing below */
+}
+
+
+/* ============================= */
+/* Mobile Responsive */
+/* ============================= */
+@media (max-width: 768px) {
+  .ai-analyze-container {
+    padding: 16px;
+  }
+
+  .upload-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+

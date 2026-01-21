@@ -8,6 +8,33 @@
 
   <span class="spacer"></span>
 
+  <!-- AI ACTIONS -->
+  <div class="ai-actions">
+
+        <button
+      mat-button
+      routerLink="/tasks">
+      <mat-icon>task</mat-icon>
+      Task
+    </button>
+
+    <button
+      mat-button
+      routerLink="/ai/summary">
+      <mat-icon>smart_toy</mat-icon>
+      AI Summary
+    </button>
+
+    <button
+      mat-button
+      routerLink="/ai/document">
+      <mat-icon>description</mat-icon>
+      AI Analyze
+    </button>
+  </div>
+
+  <span class="spacer"></span>
+
   <!-- RIGHT -->
   <div class="right">
     <span class="user">{{ auth.userEmail }}</span>

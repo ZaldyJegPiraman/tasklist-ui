@@ -1,0 +1,74 @@
+
+
+
+<div class="ai-analyze-container">
+  <!-- existing HTML -->
+<h2>AI Analyze Document</h2>
+
+
+
+
+<h3>Upload Document</h3>
+<input type="file" (change)="onFileSelected($event)" />
+<button (click)="upload()">Analyze</button>
+
+<!-- Progress bar -->
+<mat-progress-bar
+  *ngIf="loading"
+  mode="indeterminate">
+</mat-progress-bar>
+
+<p *ngIf="loading">Analyzing document...</p>
+
+<!-- RESULT 
+<div *ngIf="!loading && result">
+
+  <h3>Summary</h3>
+  <p>{{ result.summary }}</p>
+
+  <h3>Extracted Tasks</h3>
+
+  <div *ngFor="let task of result.tasks" class="task-card">
+    <strong>{{ task.title }}</strong>
+    <p>{{ task.description }}</p>
+
+    <p *ngIf="task.dueDate">
+      <b>Due:</b> {{ task.dueDate | date:'mediumDate' }}
+    </p>
+
+    <p *ngIf="task.people.length">
+      <b>People:</b>
+      <span *ngFor="let p of task.people; let last = last">
+        {{ p }}<span *ngIf="!last">, </span>
+      </span>
+    </p>
+  </div>
+
+</div>-->
+
+<!-- RESULT -->
+<div *ngIf="!loading && result">
+
+  <h3>Summary</h3>
+  <p>{{ result.summary }}</p>
+
+  <h3>Extracted Tasks</h3>
+
+  <div *ngFor="let task of result.tasks" class="task-card">
+    <p><strong>{{ task.title }}</strong></p>
+    <p>{{ task.description }}</p>
+    <p *ngIf="task.dueDate"><b>Due:</b> {{ task.dueDate | date }}</p>
+
+      <span *ngFor="let p of task.people; let last = last">
+        {{ p }}<span *ngIf="!last">, </span>
+      </span>
+ <br>
+    <!-- ✅ ADD BUTTON -->
+    <button (click)="addTask(task)">
+      ➕ Add Task
+    </button>
+  </div>
+
+</div>
+
+</div>

@@ -1,0 +1,24 @@
+
+
+
+<div class="summary-page">
+  <h2>AI Task Summary</h2>
+
+<!-- Progress bar -->
+<mat-progress-bar
+  *ngIf="loading"
+  mode="indeterminate">
+</mat-progress-bar>
+
+<p *ngIf="loading">Generating AI summary...</p>
+
+<!-- Render markdown AFTER loading -->
+<div class="ai-summary-wrapper" *ngIf="!loading && summary">
+   <markdown
+    *ngIf="!loading && summary"
+    class="ai-summary-container markdown"
+    [data]="summary">
+  </markdown>
+</div>
+
+</div>
